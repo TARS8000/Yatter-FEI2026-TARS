@@ -28,6 +28,7 @@ export default async function Home() {
 
   return (
     <>
+    <Timeline>
       {yweets.map((yweet) => (
         <YweetCard
           key={yweet.id}
@@ -36,6 +37,7 @@ export default async function Home() {
           avatarUrl={yweet.user.avatar}
         />
       ))}
+    </Timeline>
     </>
   );
 }
