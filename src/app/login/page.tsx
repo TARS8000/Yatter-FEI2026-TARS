@@ -7,14 +7,14 @@ import { Input } from "@/components/Input";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/auth/AuthProvider";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Page() {
   const { login } = useAuth();
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-　const [error, setError] = useState<string | null>(null);    
-
+  const [error, setError] = useState<string | null>(null);    
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -95,6 +95,12 @@ export default function Page() {
           ログイン
         </Button>
       </form>
+      <p className="mt-4 text-center text-sm text-gray-600">
+      アカウントがない場合は{" "}
+      <Link href="/signup" className="text-blue-500 hover:underline">
+      新規登録
+      </Link>
+    </p>
     </div>
   );
 }

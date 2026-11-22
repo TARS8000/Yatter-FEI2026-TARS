@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import {HeaderSearch} from "@/components/search";
 
 type HeaderProps = {
   /** 右側（ログイン／ログアウトなど）。HeaderNav などから渡す */
@@ -17,6 +18,7 @@ export function Header({ children }: HeaderProps) {
         <Link href="/" className="text-xl font-bold text-blue-500">
           Yatter
         </Link>
+        <HeaderSearch />
         <div className="flex items-center gap-2">{children}</div>
       </div>
     </header>
