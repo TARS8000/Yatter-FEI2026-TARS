@@ -101,17 +101,25 @@ export default async function UserPage({ params }: PageProps) {
           <div className="h-36 w-full bg-gray-200" />
         )}
         <div className="px-4 pb-4">
-          <img
-            src={
-              user.avatar && user.avatar.length > 0
-                ? user.avatar
-                : "/avatar-default.svg"
-            }
-            alt=""
-            width={80}
-            height={80}
-            className="-mt-10 h-20 w-20 rounded-full border-4 border-white object-cover"
-          />
+          <div className="flex items-start justify-between">
+            <img
+              src={
+                user.avatar && user.avatar.length > 0
+                  ? user.avatar
+                  : "/avatar-default.svg"
+              }
+              alt=""
+              width={80}
+              height={80}
+              className="-mt-10 h-20 w-20 rounded-full border-4 border-white object-cover"
+            />
+            <div className="pt-3">
+              <ProfileActionButton
+                username={user.username}
+                initialIsFollowing={isFollowing}
+              />
+            </div>
+          </div>
           <p className="mt-2 text-xl font-bold text-gray-900">
             {user.display_name || `@${user.username}`}
           </p>
@@ -121,14 +129,6 @@ export default async function UserPage({ params }: PageProps) {
               {user.note}
             </p>
           ) : null}
-          <div className="flex items-start justify-between">
-            <div className="pt-3">
-              <ProfileActionButton
-                username={user.username}
-                initialIsFollowing={isFollowing}
-              />
-            </div>
-          </div>
           <p className="mt-3 text-sm text-gray-500">
             <span className="font-bold text-gray-900">
               {user.following_count}
