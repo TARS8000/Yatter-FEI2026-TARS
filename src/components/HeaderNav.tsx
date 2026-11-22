@@ -31,13 +31,22 @@ export function HeaderNav() {
   }
 
   return (
-    <Header>
-      <Link
-        href="/login"
-        className="rounded-full px-4 py-1.5 text-sm font-medium text-blue-500 hover:bg-blue-50"
-      >
-        ログイン
-      </Link>
-    </Header>
+ // src/components/HeaderNav.tsx（user がいないときの return）
+
+  <Header>
+    <Link
+      href="/signup"
+      className="rounded-full px-4 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50"
+    >
+      新規登録
+    </Link>
+    <Link
+      href="/login"
+      className="rounded-full px-4 py-1.5 text-sm font-medium text-blue-500 hover:bg-blue-50"
+    >
+      ログイン
+    </Link>
+  </Header>
+
   );
 }
